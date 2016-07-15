@@ -1,8 +1,8 @@
 # The issue
 
-haproxy/haproxy#74
 
-The HAProxy doesn't respect the `hold valid 1s` setting, so after the `docker-compose scale app=10`, the reverse proxy will not redirect the traffic to the other `app` service, only to the original resolved IP address.
+The HAProxy doesn't respect the `hold valid 1s` setting, so after the `docker-compose scale app=10`, the reverse proxy will not redirect the traffic to the other `app` service, only to the original resolved IP address. [haproxy/haproxy#74](haproxy/haproxy#74)
+
 
 # Setup
 
