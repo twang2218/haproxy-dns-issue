@@ -1,0 +1,20 @@
+version: '2'
+services:
+    haproxy:
+        image: haproxy:latest
+        volumes:
+            - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+        ports:
+            - "80:80"
+        depends_on:
+            - app
+            - syslog
+    app:
+        image: node:latest
+        volumes:
+            - ./index.js:/app/index.js
+        command: node /app/index.js
+    syslog:
+        image: bobrik/syslog-ng:latest
+        volumes:
+            - ./log:/var/log/syslog-ng
